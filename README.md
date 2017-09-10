@@ -27,7 +27,7 @@ Then find the `JAVA_ARGS` line, and use the `-Xms` and `-Xmx` parameters to set 
 
 my configuration the following one:
 
-   JAVA_ARGS="-Xms512m -Xmx512m -XX:MaxPermSize=256m"
+    JAVA_ARGS="-Xms512m -Xmx512m -XX:MaxPermSize=256m"
 
 ### Start Puppet Server
 
