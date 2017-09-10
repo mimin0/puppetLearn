@@ -38,3 +38,39 @@ Now we're ready to start Puppet Server with this command:
 Next, enable Puppet Server so that it starts when your master server boots:
 
     $ sudo systemctl enable puppetserver
+
+
+## Facter
+
+create test facts:
+
+    $ vim /opt/puppetlabs/facter/facts.d/test.py
+
+    ```python
+    #!usr/bin/env python
+    data = {"key1" : "value1", "key2" : "value2"}
+
+    for k in data:
+        print "%s=%s" % (k,data[k])
+    ```
+run for validate py script:
+
+    $ sudo python /opt/puppetlabs/facter/facts.d/test.py
+
+expected output:
+
+    key1=value1
+    key2=vakue2
+
+run `facts` via puppet:
+
+    $ sudo /opt/puppetlabs/bin/puppet facts | grep key1
+
+debug facts:
+
+    $ sudo /opt/puppetlabs/bin/puppet facts --debug
+
+fix the issue:
+
+    $ sudo chmod +x /opt/puppetlabs/facter/facts.d/test.py
+    $ sudo /opt/puppetlabs/bin/puppet facts | grep key1
