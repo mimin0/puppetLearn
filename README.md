@@ -39,7 +39,13 @@ Next, enable Puppet Server so that it starts when your master server boots:
 
     $ sudo systemctl enable puppetserver
 
-
+issue with certificates: 
+ - ntp should be installed
+ - certificates should be sign up
+ links:
+ - https://serverfault.com/questions/498496/could-not-call-sign-could-not-find-certificate-request-for-puppet#_=_
+ - https://www.digitalocean.com/community/tutorials/how-to-manage-puppet-4-certificates
+ IMPORTANT: After revoking a certificate, you must restart the Puppet master for the revocation to take effect.
 ## Facter
 
 create test facts:
